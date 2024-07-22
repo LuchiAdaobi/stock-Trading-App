@@ -11,10 +11,10 @@ export default function StockList() {
     const fetchData = async () => {
       try {
         const responses = await Promise.all(
-          watchList.map(async (stockSymbol) => {
+          watchList.map(async (stock) => {
             const response = await finnHub.get("/quote", {
               params: {
-                symbol: stockSymbol,
+                symbol: stock,
               },
             });
             return response.data;
@@ -43,3 +43,7 @@ export default function StockList() {
     </section>
   );
 }
+
+
+// playground
+
